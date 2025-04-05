@@ -1,4 +1,4 @@
-# Apr-02-2025
+# Apr-05-2025
 # main.py
 
 import time
@@ -13,6 +13,9 @@ from max3.src.get_shapes_distance import get_shapes_distance
 # -------------------------------------------------------------
 cfg.image_name = '4star_1.png'
 cfg.templ_name = '4star_24.png'
+
+# cfg.image_name = 'heart_f.png'
+# cfg.templ_name = 'heart_c.png'
 # -------------------------------------------------------------
 
 cfg.dir_data = 'IMAGES_DATA'
