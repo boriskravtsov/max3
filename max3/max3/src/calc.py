@@ -1,4 +1,4 @@
-# Apr-02-2025
+# Apr-05-2025
 # calc.py
 
 import sys
@@ -99,9 +99,15 @@ def calc_cont(
                                 [cfg.X0, cfg.Y0]])
 
         mat_affine = cv.getAffineTransform(pts_image, pts_templ)
-        dsize = (cfg.size_roi, cfg.size_roi)
 
-        image_magn_roi_warp = cv.warpAffine(image_magn_roi, mat_affine, dsize)
+        image_magn_roi_warp = np.zeros_like(image_magn_roi)
+
+        cv.warpAffine(
+                image_magn_roi,
+                mat_affine,
+                cfg.dsize_roi,
+                dst=image_magn_roi_warp,
+                borderMode=cv.BORDER_TRANSPARENT)
 
         if cfg.debug_mode:
             distance_current, difference_map_current \

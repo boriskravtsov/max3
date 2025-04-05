@@ -1,4 +1,4 @@
-# Apr-02-2025
+# Apr-05-2025
 # draw_image_warp.py
 
 import cv2 as cv
@@ -33,7 +33,14 @@ def draw_image_warp():
 
     mat_affine = cv.getAffineTransform(pts_image, pts_templ)
 
-    image_out = cv.warpAffine(image_in, mat_affine, cfg.dsize_roi)
+    image_out = np.zeros_like(image_in)
+
+    cv.warpAffine(
+        image_in,
+        mat_affine,
+        cfg.dsize_roi,
+        dst=image_out,
+        borderMode=cv.BORDER_TRANSPARENT)
 
     path_out = str(Path.cwd() / cfg.dir_debug / 'image_warp.png')
     cv.imwrite(path_out, image_out)

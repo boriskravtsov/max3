@@ -1,4 +1,4 @@
-# Apr-02-2025
+# Apr-05-2025
 # draw_result.py
 
 import cv2 as cv
@@ -57,7 +57,7 @@ def draw_result(tag, list_of_peaks):
     for item in list_of_peaks:
         y = int(item[0])
         x = int(item[1])
-        draw_peak(magn, x, y, cfg.black, 2, -1)
+        draw_peak(magn, x, y, cfg.dark_gray, 2, -1)
         if n > 0:
             draw_text(magn, x + 5, y + 0, cfg.black, str(n))
         else:
